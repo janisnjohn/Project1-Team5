@@ -10,7 +10,7 @@ $(function() {
 
 	$(searchField).on('focus',function(){
 		$(this).animate({
-			width:'82%'
+			width:'75%'
 		},400);
 		$(icon).animate({
 			right: '10px'
@@ -21,10 +21,10 @@ $(function() {
 		if(searchField.val() == '') {
 			$(searchField).animate( {
 				width:'60%'
-			}, 400, function(){});
+			}, function(){});
 			$(icon).animate( {
 				right:'360px'
-			}, 400, function(){});
+			}, function(){});
 		}
 	});
 	$('#search-form').submit(function(e){
@@ -45,6 +45,7 @@ function search(video){
  		part: 'snippet, id',
  		q: q,
  		type: 'video',
+ 		maxResults: 6,
 		key: 'AIzaSyDo2guI3rsMFK5goBQudQdrhYbJvOZKyuQ'},
 
 		function(data){
@@ -87,11 +88,11 @@ function search(video){
  function getOutput(item) {
  	var videoID = item.id.videoId;
  	var title = item.snippet.title;
- 	var description =item.snippet.description;
- 	// var thumb = item.snippet.thumbnails.medium.url;
+ 	// var description =item.snippet.description;
+ 	//var thumb = item.snippet.thumbnails.medium.url;
  	var thumb = item.id.videoId;
- 	console.log(thumb);
- 	var videoDate = item.snippet.publishedAt;
+ 	// console.log(thumb);
+ 	// var videoDate = item.snippet.publishedAt;
 
  //output to html
  var output ='<li>' +
@@ -100,8 +101,8 @@ function search(video){
  '</div>'+
  '<div class="list-right">'+
  '<h4>' +title+'</h4>' +
- '<small>by <span class="cTitle">' +title+'</span> on '+videoDate+'</small>' +
- '<p>' + description + '</p>' +
+ // '<small>by <span class="cTitle">' +title+'</span> on '+videoDate+'</small>' +
+ // '<p>' + description + '</p>' +
  '</div>' +
  '</li>' +
  '<div class ="clearfix"></div>'+
