@@ -3,16 +3,28 @@ body {
 }
 
 #header {
-  float: left;
+  position: fixed;
+  width: 100%;
+  padding: 5px 10px;
+  background: red;
+  border-bottom: 3px solid #900;
+}
+
+#logo {
+  left: 0px;
+  display: inline;
 }
 
 .jumbotron {
   text-align: center;
-  clear: both;
+  margin-top: 60px;
 }
 
 .form-inline {
-  float: right;
+  display: inline;
+  position: absolute;
+  right: 15px;
+  bottom: 7px;
   margin-top: 20px;
   font-size: 18px;
 }
