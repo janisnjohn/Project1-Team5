@@ -1,5 +1,6 @@
 $(document).ready(function() {
   $("#search").on("click", function() {
+
     console.log("ticketmaster");  
 
     var artist = $("#query").val().trim();
@@ -22,18 +23,32 @@ $(document).ready(function() {
 
         //Creating a div to hold the tickets
         var ticketDiv = $("<div class='ticket'>");
+
+        var valid = json.page.totalElements;
+
+        if (valid === 0) {
+
+            $("#Tickets").empty();
+
+            $("#Tickets").text("No Upcoming Events in Your Area");
+
+           
+            console.log("no tickets");
+
+        } else {
+
        
+      //Make div ticket active.
+        $(document).ready(function() {
+                $(".ticket").wrap("<a href=" + eventTicketURL +"></a>");
+        });
+
         //storing the image url
         var eventImages = json._embedded.events["0"].images["0"].url;
         console.log(eventImages);
 
         //displaying the image
         var img = $("<img>").attr("src", eventImages).attr("width","200").attr("height","100");
-
-        $("#Tickets").on("click", "img", function() {
-            $(".ticket").wrap("<a href=" + eventTicketURL +"></a>");
-        });
-
 
         //apending the image
         ticketDiv.html(img);
@@ -49,7 +64,7 @@ $(document).ready(function() {
         ticketDiv.append(pOne);
        
         //storing the event date
-        var eventDate = json._embedded.events["0"].dates.start.localDate;
+        var eventDate = "Date: " + json._embedded.events["0"].dates.start.localDate;
         console.log(eventDate);
 
         //creating an element to have the date displayed
@@ -59,7 +74,7 @@ $(document).ready(function() {
         ticketDiv.append(pTwo);
 
         //storing venue for the event
-        var eventVenue = json._embedded.events["0"]._embedded.venues["0"].name + " in " + json._embedded.events["0"]._embedded.venues["0"].city.name + " " + json._embedded.events["0"]._embedded.venues["0"].state.stateCode;
+        var eventVenue = "Venue: " + json._embedded.events["0"]._embedded.venues["0"].name + " in " + json._embedded.events["0"]._embedded.venues["0"].city.name + " " + json._embedded.events["0"]._embedded.venues["0"].state.stateCode;
         console.log(eventVenue);
 
         //creating an element to have the venue info displayed
@@ -72,16 +87,16 @@ $(document).ready(function() {
         console.log(eventTicketURL);
 
         //creating element to have the url to buy the tickets displayed
-        var pURL = $("<a>").text(eventTicketURL).attr("href", eventTicketURL);
+        var pURL = $("<a>").text("Get your Tickets HERE").attr("href", eventTicketURL);
 
         //Displaying the tickets url
         ticketDiv.append(pURL);
-       
 
-
-
-
+        //Display ticketmaster logo
+        ticketDiv.append('<img src= "powered-ticketmaster.png"/>');
+    
         $("#Tickets").html(ticketDiv);
+    }
         
         //do other Things.
       },
