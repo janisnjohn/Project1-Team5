@@ -35,6 +35,8 @@ $(document).ready(function() {
            
             console.log("no tickets");
 
+            $("#query").val("");
+
         } else {
 
        
@@ -96,6 +98,8 @@ $(document).ready(function() {
         ticketDiv.append('<img src= "powered-ticketmaster.png"/>');
     
         $("#Tickets").html(ticketDiv);
+
+        $("#query").val("")
     }
         
         //do other Things.
