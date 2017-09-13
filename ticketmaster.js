@@ -30,7 +30,7 @@ $(document).ready(function() {
 
             $("#Tickets").empty();
 
-            $("#Tickets").text("No Upcoming Events in Your Area");
+            $("#Tickets").html("<p id='noShow'>No Upcoming Events in Your Area</p>");
 
            
             console.log("no tickets");
