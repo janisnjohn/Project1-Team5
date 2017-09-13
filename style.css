@@ -2,28 +2,35 @@ body {
   background: url("static.jpg");
 }
 
+h2, hr {
+  text-align: center;
+  margin: 10px;
+  border-color: #C00;
+}
+
 #header {
   position: fixed;
   width: 100%;
   padding: 5px 10px;
   background: red;
   border-bottom: 3px solid #900;
+  z-index: 99;
 }
 
 #logo {
-  left: 0px;
+  margin-left: 100px;
   display: inline;
 }
 
 .jumbotron {
   text-align: center;
-  margin-top: 60px;
+  margin-top: 80px;
 }
 
 .form-inline {
   display: inline;
   position: absolute;
-  right: 15px;
+  right: 100px;
   bottom: 7px;
   margin-top: 20px;
   font-size: 18px;
@@ -31,4 +38,23 @@ body {
 
 .form-group {
   margin-left: 20px;
+}
+
+#Videos, #Upcoming{
+  background: #eee;
+  border-radius: 5px;
+  min-height: 300px;
+}
+
+#Tickets img {
+  margin-bottom: 10px;
+}
+
+#vidList {
+  margin-bottom: 25px;
+}
+
+a, a:hover {
+  text-decoration: none;
+  color: #333;
 }
