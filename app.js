@@ -61,16 +61,11 @@ function search(video){
  	var videoDate = item.snippet.publishedAt;
 
 	 //output to html
-	 var output ='<li>' +
-	 '<div class="list-left">' +
+	 var output =
+	 '<div class="col-sm-6" id="vidList">' +
 	 '<iframe src="https://www.youtube.com/embed/'+thumb+'"></iframe>' +
-	 '</div>'+
-	 '<div class="list-right">'+
 	 '<h4>' +title+'</h4>' +
-	 '</div>' +
-	 '</li>' +
-	 '<div class ="clearfix"></div>'+
-	 '';
+	 '</div>';
 	return output;
 	}
 });
