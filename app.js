@@ -39,6 +39,7 @@ function search(video){
 	 		part: 'snippet, id',
 	 		q: q,
 	 		type: 'video',
+	 		maxResults: 6,
 			key: 'AIzaSyDo2guI3rsMFK5goBQudQdrhYbJvOZKyuQ'},
 
 			function(data){
