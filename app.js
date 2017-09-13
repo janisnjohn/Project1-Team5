@@ -7,7 +7,7 @@ $(function() {
 
 	$(searchField).on('focus',function(){
 		$(this).animate({
-			width:'75%'
+			width:'70%'
 		},400);
 		$(icon).animate({
 			right: '10px'
