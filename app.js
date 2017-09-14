@@ -1,6 +1,15 @@
 
 $(document).ready(function(){
 
+	if(localStorage.getItem("Artist")) { 
+		var lastSearch = JSON.parse(localStorage.getItem("Artist"));
+		$.each(lastSearch, function(i, item){
+		var output = getOutput(item);
+
+		$('#vidDump').append(output);
+		});
+  	}
+
 $(function() {
 	var searchField = $('.form-control');
 	var icon = $('#search');
@@ -30,11 +39,13 @@ $(function() {
 	});
 })
 
+
 function search(video){
 	$('#vidDump').html('');
 
 	q = $('#query').val().trim();
-	 $.get(
+
+$.get(
 	 	"https://www.googleapis.com/youtube/v3/search", {
 	 		part: 'snippet, id',
 	 		q: q,
@@ -43,6 +54,7 @@ function search(video){
 			key: 'AIzaSyDo2guI3rsMFK5goBQudQdrhYbJvOZKyuQ'},
 
 			function(data){
+			localStorage.setItem("Artist", JSON.stringify(data.items));
 
 			$.each(data.items, function(i, item){
 			var output = getOutput(item);
@@ -61,16 +73,11 @@ function search(video){
  	var videoDate = item.snippet.publishedAt;
 
 	 //output to html
-	 var output ='<li>' +
-	 '<div class="list-left">' +
+	 var output =
+	 '<div class="col-sm-6" id="vidList">' +
 	 '<iframe src="https://www.youtube.com/embed/'+thumb+'"></iframe>' +
-	 '</div>'+
-	 '<div class="list-right">'+
 	 '<h4>' +title+'</h4>' +
-	 '</div>' +
-	 '</li>' +
-	 '<div class ="clearfix"></div>'+
-	 '';
+	 '</div>';
 	return output;
 	}
 });
