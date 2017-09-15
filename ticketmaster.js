@@ -42,7 +42,7 @@ $(document).ready(function() {
        
       //Make div ticket active.
         $(document).ready(function() {
-                $(".ticket").wrap("<a href=" + eventTicketURL +"></a>");
+                $(".ticket").wrap("<a href=" + eventTicketURL + (" target='_blank' ") +"></a>");
         });
 
         //storing the image url
