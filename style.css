@@ -64,6 +64,10 @@ h2, hr {
   margin-bottom: 20px;
 }
 
+#subtext {
+  font-size: 16px;
+}
+
 a, a:hover {
   text-decoration: none;
   color: #333;
@@ -76,4 +80,8 @@ a, a:hover {
   padding-top: 10px;
   height: 45px;
   border-top: 3px solid #900;
+}
+
+.jumbotron {
+  padding: 20px;
 }
